@@ -1,0 +1,37 @@
+<template>
+    <div class="container">
+        <header class="jumbotron">
+            <h3>
+                <strong>Homepage</strong>
+            </h3>
+        </header>
+        <p>
+            <strong>Id:</strong>
+            {{currentUser.id}}
+        </p>
+        <p>
+            <strong>Email:</strong>
+            {{currentUser.email}}
+        </p>
+        <p>
+            <strong>It's your {{currentUser.role.toLocaleLowerCase("ru")}} account</strong>
+        </p>
+
+    </div>
+</template>
+
+<script>
+    export default {
+        name: 'Profile',
+        computed: {
+            currentUser() {
+                return this.$store.state.auth.user;
+            }
+        },
+        mounted() {
+            if (!this.currentUser) {
+                this.$router.push('/login');
+            }
+        }
+    };
+</script>
