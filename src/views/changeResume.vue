@@ -132,11 +132,21 @@
                         class="form-control"
                         name="careerObjective"
                 />
-                <label for="certificates">Сертификаты</label>
-                <select v-model="newResume.certificates">
-                    <option v-for="certificate in newResume.certificates" v-bind:key="certificate.id">{{certificate}}</option>
-                </select>
-                <span>Выбрано: {{newResume.certificates}}</span>
+                <div v-if="tags.length">
+                    <label for="teachers">Учитель</label>
+                    <select v-model="newResume.teacherId">
+                        <option v-for="teacher in teachers" v-bind:value="teacher.id" v-bind:key="teacher.id">
+                            {{teacher.firstName}} {{teacher.secondName}}
+                        </option>
+                    </select>
+                    <span>Выбрано: {{newResume.teacherId}}</span>
+                </div>
+                <!--                <label for="certificates">Сертификаты</label>
+                                <select v-model="newResume.certificates">
+                                    <option v-for="certificate in newResume.certificates" v-bind:key="certificate.id">{{certificate}}</option>
+                                </select>
+                                <span>Выбрано: {{newResume.certificates}}</span>-->
+                <p></p>
                 <div class="form-group">
                     <button class="btn btn-primary btn-block">Сохранить</button>
                 </div>

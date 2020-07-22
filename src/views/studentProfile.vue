@@ -21,7 +21,7 @@
                     <li v-for="obj in userInfo.tags" v-bind:key="obj.id">{{obj}}</li>
                 </ul>
             </div>
-            <div v-if="userInfo.resumes.length">
+            <div v-if="userInfo.resumes">
                 <h5>Резюме:</h5>
                 <ul>
                     <li v-for="obj in userInfo.resumes" v-bind:key="obj.id">{{obj}}</li>

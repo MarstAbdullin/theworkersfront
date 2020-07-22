@@ -23,11 +23,14 @@
                         class="form-control"
                         name="phoneNumber"
                 />
-                <label for="tags">Тэги</label>
-                <select v-model="companyInfo.tags">
-                    <option v-for="tag in tags" v-bind:key="tag.id">{{tag}}</option>
-                </select>
-                <span>Выбрано: {{companyInfo.tags}}</span>
+                <div v-if="tags.length">
+                    <label for="tags">Тэги</label>
+                    <select v-model="companyInfo.tags" multiple>
+                        <option v-for="tag in tags" v-bind:key="tag.id">{{tag}}</option>
+                    </select>
+                    <span>Выбрано: {{companyInfo.tags}}</span>
+                </div>
+                <p></p>
                 <div class="form-group">
                     <button class="btn btn-primary btn-block">Сохранить</button>
                 </div>

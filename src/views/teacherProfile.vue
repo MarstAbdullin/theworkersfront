@@ -15,13 +15,13 @@
                     <li v-for="student in userInfo.students" v-bind:key="student.id">{{student.firstName}} {{student.secondName}}</li>
                 </ul>
             </div>
-            <div v-if="userInfo.tags.length">
+           <div v-if="userInfo.tags.length">
                 <h5>Тэги:</h5>
                 <ul>
                     <li v-for="obj in userInfo.tags" v-bind:key="obj.id">{{obj}}</li>
                 </ul>
             </div>
-            <div v-if="userInfo.resumes.length && (paramId === userId)">
+            <div v-if="userInfo.resumes && (paramId === userId)">
                 <h5>Неподтверждённые резюме:</h5>
                 <ul>
                     <li v-for="obj in userInfo.resumes" v-bind:key="obj.id">{{obj}}</li>

@@ -30,11 +30,14 @@
                         class="form-control"
                         name="positionInUniversity"
                 />
-                <label for="tags">Тэги</label>
-                <select v-model="teacherInfo.tags">
-                    <option v-for="tag in tags" v-bind:key="tag.id">{{tag}}</option>
-                </select>
-                <span>Выбрано: {{teacherInfo.tags}}</span>
+                <div v-if="tags.length">
+                    <label for="tags">Тэги</label>
+                    <select v-model="teacherInfo.tags" multiple>
+                        <option v-for="tag in tags" v-bind:key="tag.id">{{tag}}</option>
+                    </select>
+                    <span>Выбрано: {{teacherInfo.tags}}</span>
+                </div>
+                <p></p>
                 <div class="form-group">
                     <button class="btn btn-primary btn-block">Сохранить</button>
                 </div>

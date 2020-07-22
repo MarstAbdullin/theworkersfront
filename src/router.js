@@ -53,8 +53,8 @@ export const router = new Router({
         },
         {
             path: '/changeResume/:id',
-            name: 'changeTeacherProfile',
-            component: () => import('./views/changeTeacherProfile.vue')
+            name: 'changeResume',
+            component: () => import('./views/changeResume.vue')
         },
         {
             path: '/resume/:id',
@@ -63,7 +63,7 @@ export const router = new Router({
         },
         {
             path: '/createResume',
-            name: 'resume',
+            name: 'createResume',
             component: () => import('./views/createResume')
         }
     ]

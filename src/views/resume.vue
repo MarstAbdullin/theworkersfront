@@ -2,7 +2,7 @@
     <div class="container">
         <header class="jumbotron">
             <div v-if="resume.confirmedByTeacher">
-                <h3>Кто подтвердил: {{resume.teacherInfo.firstName}} {{resume.teacherInfo.secondName}}</h3>
+                <h3>Id преподавателя который подтвердил данное резюме: {{resume.teacherId}}</h3>
             </div>
             <div v-else>
                 <h3>Неподтверждённое резюме</h3>
@@ -81,6 +81,7 @@
                         error.toString();
                 }
             );
+
         }
     };
 </script>

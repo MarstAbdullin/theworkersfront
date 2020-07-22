@@ -37,16 +37,23 @@
                         class="form-control"
                         name="specialty"
                 />
-                <label for="tags">Тэги</label>
-                <select v-model="studentInfo.tags">
-                    <option v-for="tag in tags" v-bind:key="tag.id">{{tag}}</option>
-                </select>
-                <span>Выбрано: {{studentInfo.tags}}</span>
-                <label for="teachers">Учителя</label>
-                <select v-model="studentInfo.teachers">
-                    <option v-for="teacher in teachers" v-bind:key="teacher.id">{{tag.firstName}} {{tag.secondName}}</option>
-                </select>
-                <span>Выбрано: {{studentInfo.teachers}}</span>
+                <div v-if="tags.length">
+                    <label for="tags">Тэги</label>
+                    <select v-model="studentInfo.tags" multiple>
+                        <option v-for="tag in tags" v-bind:key="tag.id">{{tag}}</option>
+                    </select>
+                    <span>Выбрано: {{studentInfo.tags}}</span>
+                </div>
+                <div v-if="teachers.length">
+                    <label for="teachers">Учителя</label>
+                    <select v-model="studentInfo.teachers" multiple>
+                        <option v-for="teacher in teachers" v-bind:key="teacher.id">{{teacher.firstName}}
+                            {{teacher.secondName}}
+                        </option>
+                    </select>
+                    <span>Выбрано: {{studentInfo.teachers}}</span>
+                </div>
+                <p></p>
                 <div class="form-group">
                     <button class="btn btn-primary btn-block">Сохранить</button>
                 </div>
