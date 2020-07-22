@@ -2,53 +2,53 @@
     <div class="container">
         <div class="form-group">
             <form name="form" @submit.prevent="saveInfo">
-                <label for="firstName">FirstName</label>
+                <label for="firstName">Имя</label>
                 <input
                         v-model="studentInfo.firstName"
                         type="text"
                         class="form-control"
                         name="firstName"
                 />
-                <label for="secondName">SecondName</label>
+                <label for="secondName">Фамилия</label>
                 <input
                         v-model="studentInfo.secondName"
                         type="text"
                         class="form-control"
                         name="secondName"
                 />
-                <label for="age">Age</label>
+                <label for="age">Возраст</label>
                 <input
                         v-model="studentInfo.age"
                         type="number"
                         class="form-control"
                         name="age"
                 />
-                <label for="courseNumber">Course Number</label>
+                <label for="courseNumber">Номер курса</label>
                 <input
                         v-model="studentInfo.courseNumber"
                         type="number"
                         class="form-control"
                         name="courseNumber"
                 />
-                <label for="specialty">Specialty</label>
+                <label for="specialty">Специальность и вуз</label>
                 <input
                         v-model="studentInfo.specialty"
                         type="text"
                         class="form-control"
                         name="specialty"
                 />
-                <label for="tags">Tags</label>
+                <label for="tags">Тэги</label>
                 <select v-model="studentInfo.tags">
                     <option v-for="tag in tags" v-bind:key="tag.id">{{tag}}</option>
                 </select>
                 <span>Выбрано: {{studentInfo.tags}}</span>
-                <label for="teachers">Teachers</label>
+                <label for="teachers">Учителя</label>
                 <select v-model="studentInfo.teachers">
                     <option v-for="teacher in teachers" v-bind:key="teacher.id">{{tag.firstName}} {{tag.secondName}}</option>
                 </select>
                 <span>Выбрано: {{studentInfo.teachers}}</span>
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block">Save</button>
+                    <button class="btn btn-primary btn-block">Сохранить</button>
                 </div>
             </form>
         </div>

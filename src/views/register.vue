@@ -9,7 +9,7 @@
             <form name="form" @submit.prevent="handleRegister">
                 <div v-if="!successful">
                     <div class="form-group">
-                    <label for="role">Role</label>
+                    <label for="role">Роль</label>
                         <p>
                         <input
                                 v-model="user.role"
@@ -17,7 +17,7 @@
                                 class="custom-radio"
                                 name="role"
                                 value="STUDENT"
-                        />Student
+                        />Студент
                         </p>
                         <p>
                         <input
@@ -26,7 +26,7 @@
                                 class="custom-radio"
                                 name="role"
                                 value="COMPANY"
-                        />Company
+                        />Компания
                         </p>
                         <p>
                         <input
@@ -35,7 +35,7 @@
                                 class="custom-radio"
                                 name="role"
                                 value="TEACHER"
-                        />Teacher
+                        />Учитель
                         </p>
                     </div>
                     <div class="form-group">
@@ -53,7 +53,7 @@
                         >{{errors.first('email')}}</div>
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
+                        <label for="password">Пароль</label>
                         <input
                                 v-model="user.password"
                                 v-validate="'required|min:6|max:40'"
@@ -67,7 +67,7 @@
                         >{{errors.first('password')}}</div>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-block">Sign Up</button>
+                        <button class="btn btn-primary btn-block">Зарегистрироваться</button>
                     </div>
                 </div>
             </form>

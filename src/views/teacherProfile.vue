@@ -1,11 +1,11 @@
 <template>
     <div class="container">
         <header class="jumbotron">
-            <h3>Your student id: {{userInfo.id}}</h3>
+            <h3>Ваш преподавательский id: {{userInfo.id}}</h3>
             <!--<div class="card-img"><img :src="userInfo.photoPath" /></div>-->
             <h3>{{userInfo.firstName}} {{userInfo.secondName}}</h3>
             <div v-if="userInfo.workingExperience">
-                <h4>{{userInfo.workingExperience}} месяцев</h4>
+                <h4>Опыт работы: {{userInfo.workingExperience}}</h4>
             </div>
             <h4>{{userInfo.positionInUniversity}}</h4>
             <h5>email: {{userInfo.userDto.email}}</h5>
@@ -21,7 +21,7 @@
                     <li v-for="obj in userInfo.tags" v-bind:key="obj.id">{{obj}}</li>
                 </ul>
             </div>
-            <div v-if="userInfo.resumes.length && (id === paramId)">
+            <div v-if="userInfo.resumes.length && (paramId === userId)">
                 <h5>Неподтверждённые резюме:</h5>
                 <ul>
                     <li v-for="obj in userInfo.resumes" v-bind:key="obj.id">{{obj}}</li>
@@ -39,13 +39,13 @@
         data() {
             return {
                 userInfo: '',
-                paramId: this.$store.state.auth.user.id,
-                id: this.$route.params.id,
+                userId: this.$store.state.auth.user.id,
+                paramId: this.$route.params.id,
                 resumes: []
             };
         },
         mounted() {
-            UserService.getTeacherInfo(this.id).then(
+            UserService.getTeacherInfo(this.paramId).then(
                 response => {
                     this.userInfo = response.data;
                 },
@@ -57,7 +57,7 @@
                 }
             );
 
-            UserService.getUnconfirmedResumes(this.id).then(
+            UserService.getUnconfirmedResumes(this.paramId).then(
                 response => {
                     this.resumes = response.data;
                 },

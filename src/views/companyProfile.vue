@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <header class="jumbotron">
-            <h3>Your company id: {{userInfo.id}}</h3>
+            <h3>Айди компании: {{userInfo.id}}</h3>
             <!--<div class="card-img"><img :src="userInfo.photoPath" /></div>-->
             <h3>{{userInfo.companyName}}</h3>
             <div v-if="userInfo.address">
@@ -15,7 +15,7 @@
                     <li v-for="obj in userInfo.tags" v-bind:key="obj.id">{{obj}}</li>
                 </ul>
             </div>
-            <div v-if="(paramId === id)">
+            <div v-if="(!(paramId === userId))">
                 <h5>Отзывы:</h5>
                 <ul>
                     <li v-for="obj in reviews" v-bind:key="obj.id">{{obj.review}}</li>
@@ -33,13 +33,13 @@
         data() {
             return {
                 userInfo: '',
-                paramId: this.$store.state.auth.user.id,
-                id: this.$route.params.id,
+                userId: this.$store.state.auth.user.id,
+                paramId: this.$route.params.id,
                 reviews: []
             };
         },
         mounted() {
-            UserService.getCompanyInfo(this.id).then(
+            UserService.getCompanyInfo(this.paramId).then(
                 response => {
                     this.userInfo = response.data;
                 },
@@ -51,7 +51,7 @@
                 }
             );
 
-            UserService.getCompanyReviews(this.id).then(
+            UserService.getCompanyReviews(this.paramId).then(
                 response => {
                     this.reviews = response.data;
                 },

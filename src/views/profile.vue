@@ -14,7 +14,7 @@
             {{currentUser.email}}
         </p>
         <p>
-            <strong>It's your {{currentUser.role.toLocaleLowerCase("ru")}} account</strong>
+            <strong>Это ваш {{currentUser.role.toLocaleLowerCase("ru")}} аккаунт</strong>
         </p>
 
     </div>

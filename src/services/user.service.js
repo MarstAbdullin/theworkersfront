@@ -40,8 +40,48 @@ class UserService {
         return axios.get((API_URL + '/company/' + id +'/reviews'), { headers: authHeader() });
     }
 
+    changeResume(resume) {
+        return axios.post(API_URL + 'resume', {
+            id: resume.id,
+            age: resume.age,
+            university: resume.university,
+            workingInProject: resume.workingInProject,
+            workingFulltime: resume.workingFulltime,
+            city: resume.city,
+            readyToRelocation: resume.readyToRelocation,
+            sex: resume.sex,
+            citizenship: resume.citizenship,
+            workingExperience: resume.workingExperience,
+            description: resume.description,
+            phoneNumber: resume.phoneNumber,
+            email: resume.email,
+            careerObjective: resume.careerObjective,
+            languages: resume.languages
+        }, { headers: authHeader() });
+    }
+
+        createResume(resume) {
+        return axios.post(API_URL + 'createResume', {
+            age: resume.age,
+            university: resume.university,
+            workingInProject: resume.workingInProject,
+            workingFulltime: resume.workingFulltime,
+            city: resume.city,
+            readyToRelocation: resume.readyToRelocation,
+            sex: resume.sex,
+            citizenship: resume.citizenship,
+            workingExperience: resume.workingExperience,
+            description: resume.description,
+            phoneNumber: resume.phoneNumber,
+            email: resume.email,
+            careerObjective: resume.careerObjective,
+            languages: resume.languages
+        }, { headers: authHeader() });
+    }
+
     changeStudentProfile(studentInfoDto) {
         return axios.post(API_URL + 'studentProfile', {
+            id: studentInfoDto.id,
             firstName: studentInfoDto.firstName,
             secondName: studentInfoDto.secondName,
             age: studentInfoDto.age,
@@ -54,6 +94,7 @@ class UserService {
 
     changeCompanyProfile(companyInfoDto) {
         return axios.post(API_URL + 'companyProfile', {
+            id: companyInfoDto.id,
             companyName: companyInfoDto.companyName,
             address: companyInfoDto.address,
             phoneNumber: companyInfoDto.phoneNumber,

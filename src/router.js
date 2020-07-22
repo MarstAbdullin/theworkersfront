@@ -27,7 +27,7 @@ export const router = new Router({
             component: () => import('./views/studentProfile.vue')
         },
         {
-            path: '/changeStudentProfile/:id',
+            path: '/changeStudentProfile/',
             name: 'changeStudentProfile',
             component: () => import('./views/changeStudentProfile.vue')
         },
@@ -42,7 +42,7 @@ export const router = new Router({
             component: () => import('./views/changeCompanyProfile.vue')
         },
         {
-            path: '/teacherProfile',
+            path: '/teacherProfile/:id',
             name: 'teacher Profile',
             component: () => import('./views/teacherProfile.vue')
         },
@@ -52,9 +52,19 @@ export const router = new Router({
             component: () => import('./views/changeTeacherProfile.vue')
         },
         {
+            path: '/changeResume/:id',
+            name: 'changeTeacherProfile',
+            component: () => import('./views/changeTeacherProfile.vue')
+        },
+        {
             path: '/resume/:id',
             name: 'resume',
             component: () => import('./views/resume')
+        },
+        {
+            path: '/createResume',
+            name: 'resume',
+            component: () => import('./views/createResume')
         }
     ]
 });

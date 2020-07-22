@@ -2,34 +2,34 @@
     <div class="container">
         <div class="form-group">
             <form name="form" @submit.prevent="saveInfo">
-                <label for="companyName">Company Name</label>
+                <label for="companyName">Название компании</label>
                 <input
                         v-model="companyInfo.companyName"
                         type="text"
                         class="form-control"
                         name="firstName"
                 />
-                <label for="address">Address</label>
+                <label for="address">Адрес</label>
                 <input
                         v-model="companyInfo.address"
                         type="text"
                         class="form-control"
                         name="address"
                 />
-                <label for="phoneNumber">Phone number</label>
+                <label for="phoneNumber">Номер телефона</label>
                 <input
                         v-model="companyInfo.phoneNumber"
                         type="text"
                         class="form-control"
-                        name="age"
+                        name="phoneNumber"
                 />
-                <label for="tags">Tags</label>
+                <label for="tags">Тэги</label>
                 <select v-model="companyInfo.tags">
                     <option v-for="tag in tags" v-bind:key="tag.id">{{tag}}</option>
                 </select>
                 <span>Выбрано: {{companyInfo.tags}}</span>
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block">Save</button>
+                    <button class="btn btn-primary btn-block">Сохранить</button>
                 </div>
             </form>
         </div>
@@ -40,7 +40,7 @@
     import UserService from '../services/user.service';
 
     export default {
-        name: 'StudentInfo',
+        name: 'CompanyInfo',
         data() {
             return {
                 companyInfo: '',

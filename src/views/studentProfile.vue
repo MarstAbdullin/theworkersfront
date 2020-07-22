@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <header class="jumbotron">
-            <h3>Your student id: {{userInfo.id}}</h3>
-            <div class="card-img"><img :src="userInfo.photoPath" /></div>
+            <h3>Ваш студенческий id: {{userInfo.id}}</h3>
+<!--            <div class="card-img"><img :src="userInfo.photoPath" /></div>-->
             <h3>{{userInfo.firstName}} {{userInfo.secondName}}</h3>
             <div v-if="userInfo.age">
                 <h4>{{userInfo.age}} лет</h4>
@@ -39,12 +39,12 @@
         data() {
             return {
                 userInfo: '',
-                paramId: this.$store.state.auth.user.id,
-                id: this.$route.params.id
+                userId: this.$store.state.auth.user.id,
+                paramId: this.$route.params.id
             };
         },
         mounted() {
-            UserService.getStudentInfo(this.id).then(
+            UserService.getStudentInfo(this.paramId).then(
                 response => {
                     this.userInfo = response.data;
                 },

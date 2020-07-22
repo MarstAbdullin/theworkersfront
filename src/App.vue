@@ -5,28 +5,31 @@
       <a href class="navbar-brand" @click.prevent>TheWorkers</a>
      <div v-if="(currentUser) && (currentUser.role === 'STUDENT')" class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link :to=studentInfoLink class="nav-link">My profile</router-link>
+          <router-link :to=studentInfoLink class="nav-link">Мой профиль</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/changeStudentProfile" class="nav-link">Change my profile</router-link>
+          <router-link to="/changeStudentProfile" class="nav-link">Изменить профиль</router-link>
         </li>
+         <li class="nav-item">
+             <router-link to="/createResume" class="nav-link">Создать резюме</router-link>
+         </li>
       </div>
 
       <div v-if="(currentUser) && (currentUser.role === 'COMPANY')" class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link :to=companyInfoLink class="nav-link">Company profile</router-link>
+          <router-link :to=companyInfoLink class="nav-link">Профиль компании</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/changeCompanyProfile" class="nav-link">Change company profile</router-link>
+          <router-link to="/changeCompanyProfile" class="nav-link">Изменить профиль компании</router-link>
         </li>
       </div>
 
       <div v-if="(currentUser) && (currentUser.role === 'TEACHER')" class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link :to=teacherInfoLink class="nav-link">My profile</router-link>
+          <router-link :to=teacherInfoLink class="nav-link">Мой профиль</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/changeTeacherProfile" class="nav-link">Change my profile</router-link>
+          <router-link to="/changeTeacherProfile" class="nav-link">Изменить профиль</router-link>
         </li>
       </div>
 

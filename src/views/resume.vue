@@ -7,7 +7,7 @@
             <div v-else>
                 <h3>Неподтверждённое резюме</h3>
             </div>
-            <h3>Your student id: {{resume.id}}</h3>
+            <h3>id резюме: {{resume.id}}</h3>
             <!--<div class="card-img"><img :src="resume.photoPath" /></div>-->
             <h3>{{resume.student.firstName}} {{resume.student.secondName}}</h3>
             <div v-if="resume.age">
@@ -19,6 +19,16 @@
             <div v-else>
                 <h4>Пол: Ж</h4>
             </div>
+            <h4>Учился в {{resume.university}}</h4>
+            <h4>Живу в {{resume.city}}</h4>
+            <h4>Гражданство: {{resume.citizenship}}</h4>
+            <div v-if="resume.readyToRelocation">
+                <h4>Готов переехать</h4>
+            </div>
+            <div v-else>
+                <h4>Не готов переезжать</h4>
+            </div>
+            <h4>Опыт работы: {{resume.workingExperience}}</h4>
             <div v-if="resume.workingInProject">
                 <h4>Готов работать на один проект</h4>
             </div>
@@ -31,13 +41,12 @@
             <div v-else>
                 <h4>Не готов работать на постоянку</h4>
             </div>
-            <div v-if="resume.readyToRelocation">
-                <h4>Готов переехать</h4>
-            </div>
-            <div v-else>
-                <h4>Не готов переезжать</h4>
-            </div>
-
+            <h5>Описание: {{resume.description}}</h5>
+            <h4>Номер телефона: {{resume.phoneNumber}}</h4>
+            <h4>Email: {{resume.email}}</h4>
+            <h4>Номер телефона: {{resume.phoneNumber}}</h4>
+            <h4>Карьерные цели: {{resume.careerObjective}}</h4>
+            <h4>Владение языками и их уровень: {{resume.languages}}</h4>
             <div v-if="resume.certificates.length">
                 <h5>Сертификаты:</h5>
                 <ul>
@@ -56,12 +65,12 @@
         data() {
             return {
                 resume: '',
-                paramId: this.$store.state.auth.user.id,
-                id: this.$route.params.id
+                userId: this.$store.state.auth.user.id,
+                paramId: this.$route.params.id
             };
         },
         mounted() {
-            UserService.getResume(this.id).then(
+            UserService.getResume(this.paramId).then(
                 response => {
                     this.resume = response.data;
                 },
