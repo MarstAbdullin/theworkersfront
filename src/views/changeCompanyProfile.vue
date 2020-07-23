@@ -75,10 +75,6 @@
                 response => {
                     this.tags = response.data;
                 });
-            UserService.getTeachers().then(
-                response => {
-                    this.teachers = response.data;
-                });
         }
     };
 </script>

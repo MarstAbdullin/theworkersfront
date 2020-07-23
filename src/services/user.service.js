@@ -42,6 +42,7 @@ class UserService {
 
     changeResume(resume) {
         return axios.post(API_URL + 'resume', {
+            resumeName: resume.resumeName,
             id: resume.id,
             age: resume.age,
             university: resume.university,
@@ -56,12 +57,16 @@ class UserService {
             phoneNumber: resume.phoneNumber,
             email: resume.email,
             careerObjective: resume.careerObjective,
-            languages: resume.languages
+            languages: resume.languages,
+            studentId: resume.studentId,
+            teacherId: resume.teacherId,
+            confirmedByTeacher: false
         }, { headers: authHeader() });
     }
 
         createResume(resume) {
         return axios.post(API_URL + 'createResume', {
+            resumeName: resume.resumeName,
             age: resume.age,
             university: resume.university,
             workingInProject: resume.workingInProject,
@@ -75,7 +80,9 @@ class UserService {
             phoneNumber: resume.phoneNumber,
             email: resume.email,
             careerObjective: resume.careerObjective,
-            languages: resume.languages
+            languages: resume.languages,
+            teacherId: resume.teacherId,
+            confirmedByTeacher: false
         }, { headers: authHeader() });
     }
 
@@ -113,6 +120,10 @@ class UserService {
             students: teacherInfoDto.students,
             tags: teacherInfoDto.tags,
         }, { headers: authHeader() });
+    }
+
+    confirmResume(resumeId) {
+        return axios.get((API_URL + 'resume/' + resumeId +'/confirm'), { headers: authHeader() });
     }
 }
 

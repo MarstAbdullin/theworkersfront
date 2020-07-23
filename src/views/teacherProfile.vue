@@ -21,10 +21,10 @@
                     <li v-for="obj in userInfo.tags" v-bind:key="obj.id">{{obj}}</li>
                 </ul>
             </div>
-            <div v-if="userInfo.resumes && (paramId === userId)">
+            <div v-if="!(paramId === userId) && resumes.length">
                 <h5>Неподтверждённые резюме:</h5>
                 <ul>
-                    <li v-for="obj in userInfo.resumes" v-bind:key="obj.id">{{obj}}</li>
+                    <li v-for="obj in resumes" v-bind:key="obj.id"><a :href="'/resume/' + obj.id"><p v-if="obj.id>0">Резюме: {{obj.resumeName}}</p></a></li>
                 </ul>
             </div>
         </header>

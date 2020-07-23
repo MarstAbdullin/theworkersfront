@@ -18,7 +18,7 @@
             <div v-if="((paramId === userId))">
                 <h5>Отзывы:</h5>
                 <ul>
-                    <li v-for="obj in reviews" v-bind:key="obj.id">{{obj.review}}</li>
+                    <li v-for="obj in reviews" v-bind:key="obj.id">{{obj}}</li>
                 </ul>
             </div>
         </header>

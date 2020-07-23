@@ -6,10 +6,13 @@
             </div>
             <div v-else>
                 <h3>Неподтверждённое резюме</h3>
+                <button class="btn btn-primary" v-if="!(resume.studentId === paramId)" v-on:click="confirmResume">Подтвердить резюме</button>
             </div>
             <h3>id резюме: {{resume.id}}</h3>
+            <h3>{{resume.resumeName}}</h3>
+
             <!--<div class="card-img"><img :src="resume.photoPath" /></div>-->
-            <h3>{{resume.student.firstName}} {{resume.student.secondName}}</h3>
+            <h3><a :href="'/studentProfile/' + resume.studentId">Профиль студента</a></h3>
             <div v-if="resume.age">
                 <h4>{{resume.age}} лет</h4>
             </div>
@@ -44,7 +47,6 @@
             <h5>Описание: {{resume.description}}</h5>
             <h4>Номер телефона: {{resume.phoneNumber}}</h4>
             <h4>Email: {{resume.email}}</h4>
-            <h4>Номер телефона: {{resume.phoneNumber}}</h4>
             <h4>Карьерные цели: {{resume.careerObjective}}</h4>
             <h4>Владение языками и их уровень: {{resume.languages}}</h4>
             <div v-if="resume.certificates.length">
@@ -68,6 +70,11 @@
                 userId: this.$store.state.auth.user.id,
                 paramId: this.$route.params.id
             };
+        },
+        methods: {
+            confirmResume() {
+                UserService.confirmResume(this.paramId)
+            }
         },
         mounted() {
             UserService.getResume(this.paramId).then(

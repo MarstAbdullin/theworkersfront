@@ -2,6 +2,13 @@
     <div class="container">
         <div class="form-group">
             <form name="form" @submit.prevent="saveInfo">
+                <label for="resumeName">Название резюме:</label>
+                <input
+                        v-model="resume.resumeName"
+                        type="text"
+                        class="form-control"
+                        name="resumeName"
+                />
                 <label for="age">Возраст:</label>
                 <input
                         v-model="resume.age"
@@ -165,7 +172,7 @@
         name: 'Resume',
         data() {
             return {
-                resume: new Resume('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+                resume: new Resume('','', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
                 teachers: []
             };
         },

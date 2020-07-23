@@ -1,5 +1,6 @@
 export default class Resume {
-    constructor(age, university, workingInProject, workingFulltime, city, readyToRelocation, sex, citizenship, workingExperience, description, phoneNumber, email, careerObjective, languages, confirmedByTeacher, teacherId) {
+    constructor(resumeName, age, university, workingInProject, workingFulltime, city, readyToRelocation, sex, citizenship, workingExperience, description, phoneNumber, email, careerObjective, languages, confirmedByTeacher, teacherId) {
+        this.resumeName = resumeName;
         this.age = age;
         this.university = university;
         this.workingInProject = workingInProject;

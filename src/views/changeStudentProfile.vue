@@ -45,13 +45,13 @@
                     <span>Выбрано: {{studentInfo.tags}}</span>
                 </div>
                 <div v-if="teachers.length">
-                    <label for="teachers">Учителя</label>
+<!--                    <label for="teachers">Учителя</label>
                     <select v-model="studentInfo.teachers" multiple>
                         <option v-for="teacher in teachers" v-bind:key="teacher.id">{{teacher.firstName}}
                             {{teacher.secondName}}
                         </option>
                     </select>
-                    <span>Выбрано: {{studentInfo.teachers}}</span>
+                    <span>Выбрано: {{studentInfo.teachers}}</span>-->
                 </div>
                 <p></p>
                 <div class="form-group">

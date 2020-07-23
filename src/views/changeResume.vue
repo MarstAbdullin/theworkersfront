@@ -1,7 +1,14 @@
 <template>
     <div class="container">
         <div class="form-group">
-            <form v-if="newResume.student.id === studentId" name="form" @submit.prevent="saveInfo">
+            <form v-if="newResume.studentId === studentId" name="form" @submit.prevent="saveInfo">
+                <label for="resumeName">Название резюме:</label>
+                <input
+                        v-model="newResume.resumeName"
+                        type="text"
+                        class="form-control"
+                        name="resumeName"
+                />
                 <label for="age">Возраст</label>
                 <input
                         v-model="newResume.age"
@@ -132,7 +139,7 @@
                         class="form-control"
                         name="careerObjective"
                 />
-                <div v-if="tags.length">
+                <div v-if="teachers.length">
                     <label for="teachers">Учитель</label>
                     <select v-model="newResume.teacherId">
                         <option v-for="teacher in teachers" v-bind:value="teacher.id" v-bind:key="teacher.id">
@@ -164,6 +171,7 @@
             return {
                 newResume: '',
                 oldResume: '',
+                teachers: [],
                 studentId: this.$store.state.auth.user.id,
                 paramId: this.$route.params.id,
             };
@@ -174,7 +182,7 @@
             }
         },
         mounted() {
-            UserService.getResume(this.id).then(
+            UserService.getResume(this.paramId).then(
                 response => {
                     this.oldResume = response.data;
                     this.newResume = this.oldResume;
@@ -186,6 +194,10 @@
                         error.toString();
                 }
             );
+            UserService.getTeachers().then(
+                response => {
+                    this.teachers = response.data;
+                });
         }
     };
 </script>
